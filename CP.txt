@@ -1,0 +1,228 @@
+=> Command For Compiler :  g++-std=c++11-O2-Wall test.cpp-o test
+
+
+=> Input and output is sometimes a bottleneck in the program. SO,
+ios::sync_with_stdio(false);
+cin.tie(nullptr); cout.tie(nullptr);
+
+
+=> For Srting Input : getline(cin, s);
+
+
+=> If the amount of data for input is unknown : while(cin >> x) { }
+
+
+=> Datatypes :
+int : 32 bit -> (+-) 2*10^9;
+long long : 64 bit -> (+-) 9*10^18;
+__int128_t : 128 bit -> (+-) 10^38;
+double : 64 bit -> upto 2^53;
+long double : 80 bit;
+
+=> For Comparision of Floating Pointing Numbers :
+if(abs(a - b) < 1e-9) { // Equal }
+
+
+=> Modulo : 
+(a + b) % M = (a % M + b % M) % M;
+(a - b) % M = (a % M - b % M) % M;
+(a * b) % M = (a % M * b % M) % M;
+
+
+=> Macros : 
+#define REP(i,a,b) for (int i = a; i <= b; i++)
+#define F first
+#define S second
+#define PB push_back
+#define MP make_pair
+
+
+=> Mathematics :
+Sum of 1 to n = n*(n+1)/2;
+sum of 1^2 to n^2 = n*(n+1)*(2*n+1)/6;
+sum of Arithmatic Progression : n*(a+b)/2; // a is the first term and b is the last;
+sum of Geomatric Progression : (b*k - a)/(k-1); // a is the last term and b is the last. and k is the ratio;
+sum of (1+2+4+8+...+2^(n-1)) = (2^n) - 1;
+An upperbound for a harmonic sum = log2(n) + 1;
+
+Factorial :
+0! = 1;
+n! = n*(n-1)!;
+
+Fibonacci :
+f(0) = 0 && f(1) = 1;
+f(n) = f(n-1) + f(n-2);
+Binet's Formula : f(n) = (((1 + sqrt(5))^n) - ((1 - sqrt(5))^n)) / (2^n)*(sqrt(5));
+
+Logarithm :
+log(a*b) = log(a) + log(b);
+log(a/b) = log(a) - log(b);
+log(a^n) = n*log(a);
+The number of digits of an integer x in base b = logb(x) + 1;
+
+
+=> Time Complexity :
+O(1) -> Constant-time; Does not depend on the input size;
+        it is a direct formula that Calculate the answer;
+
+O(logn) -> Logarithmic Algo. 
+
+O(sqrt(n)) -> A Square Root Algo.; slower than O(logn) but faster than O(n);
+
+O(n) -> A linear Algo.; This is often the best Possible time complexity;
+        it often contains single loop;
+
+O(n logn) -> This time complexity often indicates that the algo sorts the input;
+             because the time complexity of efficient sorting algos is O(n logn);
+             Another possibility is that the algo uses a data structure where each operation takes O(logn) time;
+
+O(n^2) -> A Quadratic Algo often contains two nasted loops;
+
+O(n^3) -> A Cubic Algo often contains three nasted loops;
+
+O(2^n) -> This time complexity often indicates that the algo iterates through all subsets of the input elements;
+
+O(n!) -> This time complexity often indicates that the algorithm iterates through all permutations of the input elements;
+
+input size  ->  required time complexity
+n <= 10          O(n!)
+n <= 20          O(2^n)
+n <= 500         O(n^3)
+n <= 5000        O(n^2)
+n <= 10^6        O(n logn) OR O(n)
+n is large       O(1) or O(logn)
+
+
+=> Maximum SubArray Sum : in MaxSubArrSum.cpp;
+
+
+=> Sorting :
+The efficient general sorting algos work in O(n logn) time,
+and many algos that use sorting as a subroutine also have this time complexity;
+
+Sorting Algos -> Sorting.cpp
+
+-> Counting Sort : Search;
+                   The Algo creates a bookkeeping array, whose indices are elements of the original array;
+                   The Algo iterates through the original array and calculates how many times each element appears in the array;
+                   Construction of the bookkeeping array takes O(n) time. After this, the sorted array can be created in O(n) time
+                   because the number of occurrences of each element can be retrieved from the bookkeeping array.
+                   Thus, the total time complexity of counting sort is O(n).
+                   Counting sort ia a very efficient algo but it can only be used when the constant is small enough,
+                   so that the array elements can be used as indices in the bookkeeping array;
+
+=> Sorting in C++ :
+increasing order : sort(vec.begin(), vec.end());
+                   sort(arr, arr+n);
+decreasing order : sort(vec.begin(), vec.end(), greater<int>());
+                   sort(vec.rbegin(), vec.rend());
+                   sort(vec.end()-1, vec.begin()-1);
+
+
+=> User Defined Structs For Comparision;
+1. struct P {
+2.     int x, y;
+3.     bool operator<(const P &p) {
+4.         if (x != p.x) return x < p.x;
+5.         else return y < p.y;
+6.     }
+7. };
+-> The following struct P contains the x and y coordinates of a point.
+   The comparison operator is defined so that the points are sorted primarily by the x coordinate and secondarily by the y coordinate;
+
+=> Comparision Function :
+1. bool comp(string a, string b) {
+2.     if (a.size() != b.size()) return a.size() < b.size();
+3.     return a < b;
+4. }
+->  The following comparison function comp sorts strings primarily by length and secondarily by alphabetical order;
+->  Now a vector of strings can be sorted as follows : sort(v.begin(), v.end(), comp);
+
+
+=> Binary Search : binarySearch.cpp
+-> Time Complexity : O(logn);
+
+
+=> C++ Functions :
+-> These Functions are based on binary search and work in logarithmic time;
+-> lower_bound :  returns a pointer to the first array element whose value is at least x;
+-> upper_bound :  returns a pointer to the first array element whose value is larger than x;
+-> equal_range :  returns both above pointers; returns a pair;
+
+-> An important use for binary search is to find the position where the value of a function changes;
+1. int x =-1;
+2. for (int b = z; b >= 1; b /= 2) {
+3.    while (!ok(x+b)) x += b;
+4. }
+5. int k = x+1;
+
+->  Binary search can also be used to find the maximum value for a function that is first increasing and then decreasing;
+1. int x =-1;
+2. for (int b = z; b >= 1; b /= 2) {
+3.     while (f(x+b) < f(x+b+1)) x += b;
+4. }
+5. int k = x+1;
+
+-> Note that unlike in the ordinary binary search, here it is not allowed that consecutive values of the function are equal.
+   In this case it would not be possible to know how to continue the search;
+
+
+=> Data Structures :
+-> Dynamic Array == Vector;
+
+-> topics : vector, string, set, multiset, map; -> all are in files {name.cpp};
+
+=> Iterators and Range :
+-> v.begin() == (pointer of first element); // in Array, pointer (arr);
+-> v.end() == (pointer of last element) + 1; // in Array, pointer (arr+n);
+-> v.rbegin() == (pointer of first element) - 1;
+-> v.rend() == (pointer of last element);
+
+-> random_shuffle(v.begin(), v.end()); -> this function randomly shuffles the order of the elements;
+
+-> In Set, The function lower_bound(x) returns an iterator to the smallest element in the set whose value is at least x,
+   and the function upper_bound(x) returns an iterator to the smallest element in the set whose value is larger than x.
+   In both functions, if such an element does not exist, the return value is end.
+   These functions are not supported by the unordered_set structure which does not maintain the order of the elements;
+
+=> Other Structures :
+-> topics : bitset, Deque, Stack, queue, priority queue; -> all are in files {name.cpp};
+
+-> The benefit of using bitsets is that they require less memory than ordinary arrays,
+   because each element in a bitset only uses one bit of memory;
+   In addition, the values of a bitset can be efficiently manipulated using bit operators,
+   which makes it possible to optimize algorithms using bitsets;
+
+-> In Deque : adding and removing elements take O(1) time on average at both ends;
+-> In Stack : adding element to the top and removing element from the top take O(1) time;
+-> In Queue : adding element to the end and removing the first element take O(1) time;
+-> Priority Queue : Insertion and Removal take O(logn) time, and retrieval takes O(1) time;
+                    While an ordered set efficiently supports all the operations of a priority queue,
+                    the benefit of using a priority queue is that it has smaller constant factors.
+                    A priority queue is usually implemented using a heap structure that is much
+                    simpler than a balanced binary tree used in an ordered set
+
+
+=> Policy-Based Data Structures : 
+-> The g++ compiler also supports some data structures that are not part of the C++ standard library.
+   Such structures are called policy-based data structures.
+   To use these structures, the following lines must be added to the code:
+
+   1. #include <ext/pb_ds/assoc_container.hpp>
+   2. using namespace __gnu_pbds;
+
+->  After this, we can define a data structure indexed_set that is like set but can be indexed like an array.
+-> indexed_set -> indexed_set.cpp
+
+
+
+
+
+
+
+
+
+
+
+
+
