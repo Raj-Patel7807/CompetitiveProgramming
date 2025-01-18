@@ -215,14 +215,11 @@ decreasing order : sort(vec.begin(), vec.end(), greater<int>());
 -> indexed_set -> indexed_set.cpp
 
 
+=> Comparision To Sorting :
+   ->  Let us consider a problem where we are given two lists A and B that both contain n elements.
+       Our task is to calculate the number of elements that belong to both of the lists.
+   ->  Code : compToSort.cpp 
 
 
 
-
-
-
-
-
-
-
-
+=> continue in CP_Part-2.txt

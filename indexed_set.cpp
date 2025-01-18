@@ -13,15 +13,18 @@ int main() {
     s.insert(3);
     s.insert(7);
     s.insert(9);
-    // s.insert(2);
-    // s.insert(3);
+    s.insert(2);
+    s.insert(3);
 
     for(auto i : s) {
         cout << i << ' ';
     } cout << endl;
 
-    auto a = s.find_by_order(2);
+    auto a = s.find_by_order(1);
     cout << *a << endl;
+
+    auto b = s.find(3);
+    cout << *b << endl;
 
     return 0;
 }
