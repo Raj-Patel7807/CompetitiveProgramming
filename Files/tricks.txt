@@ -1,0 +1,44 @@
+-> For Check, n is Even or Odd,
+    if(n & 1) then Odd else Even;
+
+-> is Power of Two (n),   Time -> O(1);
+    if(x > 0 && x & (x-1)) then n is Power of two,
+    else not.
+
+-> k-th Bit, (k-th Least Significant)
+    (1 << k) = power(2, k);
+    check if k-th bit is set -> x & (1 << k)
+    toggle the k-th bit -> x ^ (1 << k)
+    set the k-th bit -> x | (1 << k)
+    unset the k-th bit -> x & ~(1 << k)
+
+-> multiply or Divide a number by power(2, k);
+    multiplication: (x << k)    left shift
+    divide: (x >> k)   right shift
+
+-> Modulo Operation by power(2, k):
+    x % power(2, k) = x & ((1 << k) - 1)
+
+-> Swap Two nums Without Temp variable:
+    x = x ^ y;
+    y = x ^ y;
+    x = x ^ y;
+
+-> no. of set bits in A = x
+   no. of set bits in B = y
+   no. of set bits in (A ^ B) = z
+
+   then z is even if (x + y) is even
+        z is odd if (x + y) is odd
+
+-> Toggle value of x from a to b and b to a;
+    if(x == a) then x = b; if(x == b) then x = a;
+
+    using bit-man : x = a ^ b ^ x;
+
+-> A + B = (A ^ B) + 2*(A & B);
+-> A + B = (A | B) + (A & B);
+
+-> finding no. of set bits in number x:    time -> O(1);
+    __builtin_popcount(x)    -> (x is int)
+    __builtin_popcountll(x)   -> (s is long long int)
