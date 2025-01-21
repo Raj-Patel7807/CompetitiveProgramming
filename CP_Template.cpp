@@ -1,4 +1,4 @@
-//=======================^===================================================================^=======================\\
+//=======================^===================================================================^=======================//
 
 /*
 
@@ -18,25 +18,29 @@
 
 */
 
-//=======================^===================================================================^=======================\\
+//=======================^===================================================================^=======================//
 
 /*
     @Raj_Patel_7807
     Code By : Raj_Patel
-    Date : 12/01/2025    Time -> 16:55:42
-    Problem : CPdefault
+    Date : 21/01/2025    Time -> 19:21:03
+    Problem : CP_Template
 */
 
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
+using namespace __gnu_pbds;
 
 #define Author ios :: sync_with_stdio(false);
 #define is cin.tie(nullptr);
 #define RAJ_PATEL cout.tie(nullptr)
 #define endl '\n'
-#define rr return
+#define done return
 #define precision(x) cout << fixed << setprecision(x)
 
+//=======================^========================= Data Types ==============================^=======================//
 using ll = long long int;
 using db = double;
 using ld = long double;
@@ -48,27 +52,28 @@ template <class T, class V> using vpp = vector<pair<T, V>>;
 using pl = pair<ll, ll>;
 using ml = map<ll, ll>;
 using uml = unordered_map<ll, ll>;
+using sl = set<ll>;
+using usl = unordered_set<ll>;
 using stl = stack<ll>;
 using ql = queue<ll>;
 using pql = priority_queue<ll>;
-using sl = set<ll>;
-using usl = unordered_set<ll>;
+using idset = tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_node_update>;
 #define int ll
 
-// Loops
+//=======================^============================ Loops ================================^=======================//
 #define fo(i, s, e) for(ll i=(s); i<=(e); ++i)
 #define foo(i, s, e, inc) for(ll i=(s); i<=(e); i+=(inc))
 #define rfo(i, s, e) for(ll i=(s); i>=(e); --i)
 #define ft(x, a) for(auto x : (a))
 #define fq(q) while((q)--)
 
-// Inputs
+//=======================^============================ Input ================================^=======================//
 #define in(type, name) type name; cin >> name;
 #define inn(type, n, k) type n, k; cin >> n >> k;
 #define innn(type, n, m, k) type n, m, k; cin >> n >> m >> k;
 #define vin(type, name, n) vector<type> name(n); for(ll i=0; i<(n); ++i) cin >> name[i];
 
-// Outputs
+//=======================^=========================== Output ================================^=======================//
 inline void YES(bool flag = true, bool small = false) {
     if(flag) { cout << (small ? "Yes\n" : "YES\n"); } else { cout << (small ? "No\n" : "NO\n"); }
 }
@@ -79,7 +84,7 @@ inline void NO(bool flag = true, bool small = false) {
 #define outt(n) cout << (n) << ' ';
 #define vout(a) for(auto x : a) { cout << x << ' '; } cout << '\n';
 
-// STL
+//=======================^============================= STL =================================^=======================//
 #define PB push_back
 #define EB emplace_back
 #define ins insert
@@ -87,43 +92,48 @@ inline void NO(bool flag = true, bool small = false) {
 #define MP make_pair
 #define FF first
 #define SS second
-#define UB upper_bound
-#define LB lower_bound
-#define len(x) ll(x.size())
-#define all(x) x.begin(), x.end()
-#define sortall(x) sort(x.begin(), x.end())
-#define maxval(v) *max_element(v.begin(), v.end())
-#define minval(v) *min_element(v.begin(), v.end())
-#define maxid(v) max_element(v.begin(), v.end()) - v.begin()
-#define minid(v) min_element(v.begin(), v.end()) - v.begin()
+#define UB(v, a) upper_bound((v).begin(), (v).end(), (a)) - ((v).begin())
+#define LB(v, a) lower_bound((v).begin(), (v).end(), (a)) - ((v).begin())
+#define len(x) ll((x).size())
+#define all(x) (x).begin(), (x).end()
+#define ssort(x) sort((x).begin(), (x).end())
+#define rsort(x) sort((x).rbegin(), (x).rend())
+#define maxval(v) *max_element((v).begin(), (v).end())
+#define minval(v) *min_element((v).begin(), (v).end())
+#define maxid(v) max_element((v).begin(), (v).end()) - ((v).begin())
+#define minid(v) min_element((v).begin(), (v).end()) - ((v).begin())
 
-// Debugging
+//=======================^========================== Debugging ==============================^=======================//
 #ifndef ONLINE_JUDGE
-#define debug(x) cerr << #x << " = "; _print(x); cerr << '\n';
+#define debug(x) cerr << #x << " = "; debug_print(x); cerr << '\n';
 #else
-#define debug(x)
+#define debug(x) 7807
 #endif
 template <typename T>
-void _print(T t) { cerr << t; }
+void debug_print(T t) { cerr << t; }
 template <typename T, typename V>
-void _print(pair <T, V> p) { cerr << "{"; _print(p.first); cerr << ", "; _print(p.second); cerr << "}"; }
+void debug_print(pair<T, V> p) { cerr << "{"; debug_print(p.first); cerr << ", "; debug_print(p.second); cerr << "}"; }
 template <typename T>
-void _print(vector <T> v) { cerr << "[ "; for(T i : v) {_print(i); cerr << ' ';} cerr << "]"; }
+void debug_print(vector<T> v) { cerr << "[ "; for(auto i : v) { debug_print(i); cerr << ' '; } cerr << "]"; }
 template <typename T>
-void _print(set <T> v) { cerr << "[ "; for(T i : v) {_print(i); cerr << ' ';} cerr << "]"; }
+void debug_print(set<T> v) { cerr << "[ "; for(auto i : v) { debug_print(i); cerr << ' '; } cerr << "]"; }
 template <typename T>
-void _print(multiset <T> v) { cerr << "[ "; for(T i : v) {_print(i); cerr << ' ';} cerr << "]"; }
+void debug_print(unordered_set<T> v) { cerr << "[ "; for(auto i : v) { debug_print(i); cerr << ' '; } cerr << "]"; }
+template <typename T>
+void debug_print(multiset<T> v) { cerr << "[ "; for(auto i : v) { debug_print(i); cerr << ' '; } cerr << "]"; }
 template <typename T, typename V>
-void _print(map <T, V> v) { cerr << "[ "; for(auto i : v) {_print(i); cerr << ' ';} cerr << "]"; }
+void debug_print(map<T, V> v) { cerr << "[ "; for(auto i : v) { debug_print(i); cerr << ' '; } cerr << "]"; }
+template <typename T, typename V>
+void debug_print(unordered_map<T, V> v) { cerr << "[ "; for(auto i : v) { debug_print(i); cerr << ' '; } cerr << "]"; }
 
-// Constants
+//=======================^========================== Constants ==============================^=======================//
 const ld PI = 3.1415926535897932384626L;
 const ld E = 2.7182818284590452353602L;
 const ll INF = 1e18 + 9;
 const ll MOD = 1e9 + 7;
 const ll MOD1 = 998244353;
 
-// Functions
+//=======================^========================== Functions ==============================^=======================//
 #define cntSetBit __builtin_popcountll
 inline ll gcd(ll a, ll b) { while(b) { a %= b; swap(a, b); } return a; }
 inline ll lcm(ll a, ll b) { return (a / gcd(a, b)) * b; }
@@ -163,11 +173,13 @@ inline ll onbit(ll n, ll pos) { return n | (1LL << pos); }
 inline ll offbit(ll n, ll pos) { return n & ~(1LL << pos); }
 inline bool checkbit(ll n, ll pos) { return n & (1LL << pos); }
 
-//=======================^===================================================================^=======================\\
+//=======================^============================ Code =================================^=======================//
 
 inline void solve(ll tt) {
     
 }
+
+//=======================^============================ main =================================^=======================//
 
 signed main() {
 
