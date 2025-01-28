@@ -6,10 +6,10 @@
 //===============================================//
 
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
+// #include <ext/pb_ds/assoc_container.hpp>
+// #include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
-using namespace __gnu_pbds;
+// using namespace __gnu_pbds;
 
 #define Author ios :: sync_with_stdio(false);
 #define is cin.tie(nullptr);
@@ -30,7 +30,7 @@ template <typename T> using stk = stack<T>;
 template <typename T> using qu = queue<T>;
 template <typename T> using pq = priority_queue<T>;
 template <typename T> using pqmin = priority_queue<T, vector<T>, greater<T>>;
-using idset = tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_node_update>;
+// using idset = tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_node_update>;
 #define int ll
 
 //========== Loops ==========//
@@ -40,10 +40,11 @@ using idset = tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_nod
 #define FORE(x, a) for(auto& x : (a))
 
 //========== Input ==========//
-#define in(type, name) type name; cin >> name;
-#define inn(type, n, k) type n, k; cin >> n >> k;
-#define innn(type, n, m, k) type n, m, k; cin >> n >> m >> k;
-#define vin(type, name, n) vector<type> name(n); for(ll i=0; i<(n); ++i) cin >> name[i];
+template <typename... T> inline void INPUT(T&... args) {
+    ((cin >> args), ...);
+}
+#define IN(type, ...) type __VA_ARGS__; INPUT(__VA_ARGS__);
+#define VIN(type, name, n) vector<type> name(n); for(ll i=0; i<(n); ++i) cin >> name[i];
 
 //========== Output ==========//
 inline void YES(bool flag = true, bool small = false) {
@@ -52,9 +53,12 @@ inline void YES(bool flag = true, bool small = false) {
 inline void NO(bool flag = true, bool small = false) {
     cout << (flag ? (small ? "No\n" : "NO\n") : (small ? "Yes\n" : "YES\n"));
 }
-#define out(n) cout << (n) << '\n';
-#define outt(n) cout << (n) << ' ';
-#define vout(a) for(auto x : a) { cout << x << ' '; } cout << '\n';
+template <typename... T> inline void OUTPUT(bool flag, T&... args) {
+    ((cout << args << (flag ? '\n' : ' ')), ...);
+}
+#define OUT(...) OUTPUT(true, __VA_ARGS__);
+#define OUTT(...) OUTPUT(false, __VA_ARGS__);
+#define VOUT(a) for(auto x : a) { cout << x << ' '; } cout << '\n';
 
 //========== Utils ==========//
 #define PB push_back
@@ -80,7 +84,7 @@ inline void NO(bool flag = true, bool small = false) {
 
 //========== Debugging ==========//
 #ifndef ONLINE_JUDGE
-#include "../Codeforces/Header/debug.hpp"
+#include "../Header/debug.hpp"
 #else
 #define debug(x) 7807
 #endif
@@ -150,7 +154,7 @@ inline ll moddiv(ll a, ll b, ll mod = MOD) { return modmult(a, modinv(b, mod), m
 
 //==================== Code ====================//
 inline void solve(ll tt) {
-
+    
 }
 
 //========== main Function ==========//
@@ -167,8 +171,8 @@ signed main() {
     ll tt = 1;
     // cin >> tt;
 
-    while(tt--) {
-        solve(tt);
+    for(ll i = 0; i < tt; i++) {
+        solve(i);
     }
 
     return 0;
