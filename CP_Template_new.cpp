@@ -1,9 +1,9 @@
-//===============================================//
-//                                               //
-//                @Raj_Patel_7807                //
-//              Code By : Raj_Patel              //
-//                                               //
-//===============================================//
+/*╔═══════════════════════════════════════════════════════════╗*\
+  ║                                                           ║
+  ║                      @Raj_Patel_7807                      ║
+  ║                    Code By : Raj_Patel                    ║
+  ║                                                           ║
+\*╚═══════════════════════════════════════════════════════════╝*/
 
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -15,9 +15,12 @@ using ll = long long int;
 using ull = unsigned long long int;
 using db = double;
 using ld = long double;
-template <typename T> using VC = vector<T>;
-template <typename T> using VVC = vector<vector<T>>;
-template <typename T, typename V> using VCP = vector<pair<T, V>>;
+using vl = vector<ll>;
+using pl = pair<ll, ll>;
+using ml = map<ll, ll>;
+template <typename T> using vc = vector<T>;
+template <typename T> using vvc = vector<vector<T>>;
+template <typename T, typename V> using vcp = vector<pair<T, V>>;
 template <typename T, typename V> using umap = unordered_map<T, V>;
 template <typename T> using uset = unordered_set<T>;
 template <typename T> using stk = stack<T>;
@@ -41,18 +44,18 @@ using idset = tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_nod
 #define FORE(x, a) for(auto& x : (a))
 
 template <typename... T> inline void INPUT(T&... args) { ((cin >> args), ...); }
-template <typename... T> inline void OUTPUT(bool F, T&... args) { ((cout << args << (F ? '\n' : ' ')), ...); }
+template <typename... T> inline void OUTPUT(bool F, T&&... args) { ((cout << args << (F ? '\n' : ' ')), ...); }
 #define IN(T, ...) T __VA_ARGS__; INPUT(__VA_ARGS__);
 #define OUT(...) OUTPUT(true, __VA_ARGS__);
 #define OUTT(...) OUTPUT(false, __VA_ARGS__);
-#define VIN(T, var, n) vector<T> name(n); for(ll i=0; i<(n); ++i) cin >> var[i];
-#define VVIN(T, var, n, m) VC<VC<T>> name(n, VC<T>(m)); FOR(i, n) FOR(j, m) cin >> var[i][j];
+#define VIN(T, name, n) vector<T> name(n); for(ll i=0; i<(n); ++i) cin >> name[i];
+#define VVIN(T, name, n, m) vector<vector<T>> name(n, vector<T>(m)); FOR(i, n) FOR(j, m) cin >> name[i][j];
 #define VOUT(a) for(auto x : a) { cout << x << ' '; } cout << '\n';
 inline void YES(bool F = true, bool S = false) { cout << (F ? (S ? "Yes\n" : "YES\n") : (S ? "No\n" : "NO\n")); }
 inline void NO(bool F = true, bool S = false) { cout << (F ? (S ? "No\n" : "NO\n") : (S ? "Yes\n" : "YES\n")); }
 
 #define endl '\n'
-#define bcn cout << '\n';
+#define ln cout << '\n';
 #define OK return
 #define PB push_back
 #define EB emplace_back
@@ -66,7 +69,7 @@ inline void NO(bool F = true, bool S = false) { cout << (F ? (S ? "No\n" : "NO\n
 #define LEN(x) ll((x).size())
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
-#define sort(x) sort((x).begin(), (x).end())
+#define ssort(x) sort((x).begin(), (x).end())
 #define rsort(x) sort((x).rbegin(), (x).rend())
 #define maxval(v) *max_element((v).begin(), (v).end())
 #define minval(v) *min_element((v).begin(), (v).end())
@@ -74,9 +77,9 @@ inline void NO(bool F = true, bool S = false) { cout << (F ? (S ? "No\n" : "NO\n
 #define minid(v) min_element((v).begin(), (v).end()) - ((v).begin())
 
 #ifndef ONLINE_JUDGE
-#include "Header/debug.hpp"
+#include "../Header/debug.hpp"
 #else
-#define debug(x) 7807
+#define debug(...) 7807
 #endif
 
 const ld PI = 3.1415926535897932384626L;
@@ -132,7 +135,8 @@ inline void solve(ll tt) {
 signed main() {
     SETUP_IO();
 
-    ll tt = TT();
+    ll tt = TT(
+    );
     FOR(tt) solve(i);
 
     return 0;
