@@ -2,6 +2,7 @@
 #define DEBUG_HPP
 
 #include <bits/stdc++.h>
+using namespace std;
 
 #define debug1(a) cerr << #a << " = "; debug_print(a); cerr << '\n';
 #define debug2(a, b) cerr << #a << " = "; debug_print(a); cerr << '\n'; \
@@ -18,9 +19,22 @@
                               cerr << #c << " = "; debug_print(c); cerr << '\n'; \
                               cerr << #d << " = "; debug_print(d); cerr << '\n'; \
                               cerr << #e << " = "; debug_print(e); cerr << '\n';
+#define debug6(a, b, c, d, e, f) cerr << #a << " = "; debug_print(a); cerr << '\n'; \
+                                 cerr << #b << " = "; debug_print(b); cerr << '\n'; \
+                                 cerr << #c << " = "; debug_print(c); cerr << '\n'; \
+                                 cerr << #d << " = "; debug_print(d); cerr << '\n'; \
+                                 cerr << #e << " = "; debug_print(e); cerr << '\n'; \
+                                 cerr << #f << " = "; debug_print(f); cerr << '\n';                              
+#define debug7(a, b, c, d, e, f, g) cerr << #a << " = "; debug_print(a); cerr << '\n'; \
+                                    cerr << #b << " = "; debug_print(b); cerr << '\n'; \
+                                    cerr << #c << " = "; debug_print(c); cerr << '\n'; \
+                                    cerr << #d << " = "; debug_print(d); cerr << '\n'; \
+                                    cerr << #e << " = "; debug_print(e); cerr << '\n'; \
+                                    cerr << #f << " = "; debug_print(f); cerr << '\n'; \
+                                    cerr << #g << " = "; debug_print(g); cerr << '\n';
 
-#define GET_DEBUG(a, b, c, d, e, NAME, ...) NAME
-#define debug(...) GET_DEBUG(__VA_ARGS__, debug5, debug4, debug3, debug2, debug1)(__VA_ARGS__)
+#define GET_DEBUG(a, b, c, d, e, f, g, DEBUG, ...) DEBUG
+#define debug(...) GET_DEBUG(__VA_ARGS__, debug7, debug6, debug5, debug4, debug3, debug2, debug1)(__VA_ARGS__)
 
 
 template <typename T> void debug_print(T t);
@@ -173,5 +187,6 @@ void debug_print(priority_queue<T, vector<T>, C> pq) {
     }
     cerr << "]";
 }
+
 
 #endif
